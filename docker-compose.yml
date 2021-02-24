@@ -1,0 +1,19 @@
+version: "3"
+services:
+  lab:
+    image: julia_env:v01 
+
+    container_name: jpt_container 
+
+    build:
+        context: .
+        dockerfile: ./Dockerfile
+
+    ports:
+      - "8888:8888"
+
+    volumes:
+      - .:/workdir
+
+    command: start.sh jupyter lab
+
